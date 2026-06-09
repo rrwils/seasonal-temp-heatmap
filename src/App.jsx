@@ -3,6 +3,7 @@ import './App.css'
 import { fetchData } from './data';
 import { ResponsiveHeatmap } from './Heatmap';
 import * as d3 from 'd3';
+import mouseIcon from './assets/mouse.png'
 
 function App() {
   const [heatmapData, setHeatmapData] = useState([]);
@@ -27,7 +28,7 @@ function App() {
         <p style={{
           color: "#656565",
           fontSize: 11,
-        }}>Hover over the heatmap for actual values <img src="/mouse.png"/></p>
+        }}>Hover over the heatmap for actual values <img src={mouseIcon}/></p>
       </div>
       
         <div id="graphic">

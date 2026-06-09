@@ -22,22 +22,25 @@ function App() {
 
   return (
     <>
+    <div id="section">
       <div id="header">
-        <h1>Temperature heatmap for selected cities</h1>
-        <p>Average weekly temperatures, 2025</p>
-        <p style={{
-          color: "#656565",
-          fontSize: 11,
-        }}>Hover over the heatmap for actual values <img src={mouseIcon}/></p>
-      </div>
-      
-        <div id="graphic">
-          <ResponsiveHeatmap data={heatmapData} />
+          <h1>Temperature heatmap for selected cities</h1>
+          <p>Average weekly temperatures, 2025</p>
+          <p style={{
+            color: "#656565",
+            fontSize: 11,
+          }}>Hover over the heatmap for actual values <img src={mouseIcon}/></p>
         </div>
-      <div id="footnote">
-        <p>Cities are ordered from north to south by latitude. Values show weekly averages of daily air temperatures measured 2 meters above the ground.</p>
-        <p>Data source: <a href="https://open-meteo.com/">Open-Meteo</a></p>
-      </div>
+        
+          <div id="graphic">
+            <ResponsiveHeatmap data={heatmapData} />
+          </div>
+        <div id="footnote">
+          <p>Cities are ordered from north to south by latitude. Values show weekly averages of daily air temperatures measured 2 meters above the ground.</p>
+          <p>Data source: <a href="https://open-meteo.com/">Open-Meteo</a></p>
+        </div>
+    </div>
+      
     </>
   )
 }

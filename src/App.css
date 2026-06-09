@@ -5,10 +5,12 @@
     font-size: 11px;
     flex-direction: column;
     justify-content: flex-start;
+    line-height: 120%;
 }
 
 #footnote p {
     margin: 0;
+    margin-bottom: 10px;
 }
 
 #header h1 {

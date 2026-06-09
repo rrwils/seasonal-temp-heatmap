@@ -17,8 +17,8 @@ export const Tooltip = ({ interactionData }) => {
         }}
       >
         <b>{name}</b>
-        <p style={{marginBottom:-5, marginTop:-5}}>Week {xValue}</p>
-        <p style={{marginBottom:-2, marginTop:-5}}>{d3.format(".1f")(value)}°C</p>
+        <p style={{marginBottom:2, marginTop:2}}>Week {xValue}</p>
+        <p style={{marginBottom:2, marginTop:2}}>{d3.format(".1f")(value)}°C</p>
       </div>
     );
   };

@@ -10,8 +10,9 @@ export const ColorLegend = ({ width, height, colorScale, interactionData }) => {
     const boundsHeight = height - COLOR_LEGEND_MARGIN.top - COLOR_LEGEND_MARGIN.bottom;
 
     const domain = colorScale.domain();
+    const min = domain[0];
     const max = domain[domain.length - 1];
-    const xScale = d3.scaleLinear().range([0, boundsWidth]).domain([0, max]);
+    const xScale = d3.scaleLinear().range([0, boundsWidth]).domain([min, max]);
 
     const allTicks = xScale.ticks(4).map((tick) => {
         return (
@@ -29,7 +30,7 @@ export const ColorLegend = ({ width, height, colorScale, interactionData }) => {
                     fontSize={9}
                     textAnchor="middle"
                 >
-                    {tick === 0 ? "0°C" : tick}
+                    {`${tick}°C`}
                 </text>
             </g>
         );
@@ -55,10 +56,11 @@ export const ColorLegend = ({ width, height, colorScale, interactionData }) => {
         }
         
         for (let i = 0; i < boundsWidth; ++i) {
-            context.fillStyle = colorScale((max * i) / boundsWidth);
+            const value = min + ((max - min) * i) / boundsWidth;
+            context.fillStyle = colorScale(value);
             context.fillRect(i, 0, 1, boundsHeight);
         }
-    }, [boundsWidth, boundsHeight, colorScale, max]);
+    }, [boundsWidth, boundsHeight, colorScale, min, max]);
 
     return (
         <div style={{ width, height }}>

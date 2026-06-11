@@ -81,11 +81,12 @@ export const Heatmap = ({ width, height, data }) => {
     }, [weeks, boundsWidth]);
 
     const colorScale = useMemo(() => {
+        const min = d3.min(data, d => d.value) ?? 0;
         const max = d3.max(data, d => d.value) ?? 0;
         return d3
             .scaleSequential()
-            .domain([0, max])
-            .interpolator(d3.interpolateReds);
+            .domain([min, max])
+            .interpolator(d3.interpolateTurbo);
     }, [data]);
 
     if (!data.length) {
